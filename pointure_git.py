@@ -39,10 +39,9 @@ if __name__ == "__main__":
     warnings.filterwarnings("ignore")
     _random_state=44
     # OBTENIR LE DATASET
-    path='C:\\Users\\riskf\\OneDrive\\Documents\\Courses\\AEC Spécialiste en intelligence artificielle\\Courses\\7 - 420-A57-BB - Mise en place d’un écosystème d’IA\\Final\\'
     file='pointure.data'
     try:
-        df = pd.read_csv(path+file)
+        df = pd.read_csv(file)
     except Exception as e:
         logger.exception(
             "Unable to download training & test CSV, check your internet connection. Error: %s", e)
