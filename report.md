@@ -1,0 +1,6 @@
+## Metriques:
+Train_Accuracy:  1.0 
+Train_Recall_score: 1.0
+Train_F1_Score: 1.0
+Test_Recall_Score: 0.0
+Test_F1_Score: 0.0
