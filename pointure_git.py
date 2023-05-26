@@ -77,3 +77,12 @@ if __name__ == "__main__":
     y_naive_bayes2 = gnb.predict(X_test)
     recall_score_test, f1_score_test =eval_metrics_test(X_test,y_test, y_naive_bayes2)
     
+    
+    with open("metrics.txt", 'w') as outfile:
+            outfile.write("Train_Accuracy:  {0:2.1f} \n".format(accuracy))
+            outfile.write("Train_Recall_score: {0:2.1f}\n".format(recall_score))
+            outfile.write("Train_F1_Score: {0:2.1f}\n".format(f1_score))
+            outfile.write("Test_Recall_Score: {0:2.1f}\n".format(recall_score_test))
+            outfile.write("Test_F1_Score: {0:2.1f}\n".format(f1_score_test))
+            
+            
