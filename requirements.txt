@@ -2,3 +2,4 @@ numpy
 psutil
 scikit-learn
 scipy
+pandas
