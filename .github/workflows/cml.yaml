@@ -1,13 +1,23 @@
-channels:
-- conda-forge
-dependencies:
-- python=3.11.3
-- pip<=23.0.1
-- pip:
-  - mlflow==2.3
-  - cloudpickle==2.2.1
-  - numpy==1.24.3
-  - psutil==5.9.5
-  - scikit-learn==1.2.2
-  - scipy==1.10.1
-name: mlflow-env
+name: model-supervisé RL
+on: [push]
+jobs:
+  run:
+    runs-on: [ubuntu-latest]
+    container: docker://dvcorg/cml-py3:latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: cml_run
+        env:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Your ML workflow goes here
+          pip install -r requirements.txt
+          python pointure.py
+          # Write your CML report
+          echo "## Metriques:" >> report.md
+          cat metrics.txt >> report.md
+          git config --global user.email "vitor@riskfit.ca"
+          git config --global user.name "Vitor"
+          git add report.md metrics.txt
+          git commit -m "pousser vers github repository"
+          git push origin main
